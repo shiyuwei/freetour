@@ -1,12 +1,11 @@
 <template>
-
 	<div class="icon-container">
 		<swiper :options="swiperOption" >
 		    <swiper-slide v-for="page in pages" key="page.index">
 		   		<div class="icon-list">
 			    	<div class="icon-items" v-for="item in page" key="item.id">
 			    		<router-link :to="item.link + '?id=' + item.id">
-			    			<img :src="item.imgUrl" :alt="item.itemTitle">	    		
+			    			<img :src="item.imgUrl" :alt="item.itemTitle" class="icon-img">
 			    			<p class="icon-title" >{{item.itemTitle}}</p>
 			    		</router-link>
 			    	</div>
@@ -15,11 +14,12 @@
 		    <div class="swiper-pagination"  slot="pagination"></div>
 		</swiper>
 	</div>
-
 </template>
 
 <script>
+
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
+
 export default {
     props:["iconsInfo"],
     data () {
@@ -69,16 +69,19 @@ export default {
 		padding-top: .3rem; 
 		text-align: center;
 	}
-	.icon-items img {
+	.icon-items .icon-img {
 		display: block;
 		width: .66rem;
 		height: .66rem;
 		margin: 0 auto;
 	}
 	.icon-title {
+		overflow: hidden;
 		height: .6rem;
 		line-height: .6rem;
 		font-size: .28rem;
 		color: #212121;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 </style>

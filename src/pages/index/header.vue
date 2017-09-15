@@ -1,23 +1,20 @@
 <template>
-  <header class="header">
-    <a class="header-left iconfont">&#xe720;</a>
-    <div class="header-title">
-      <router-link to="/beforeSearch">
-      <span class="single-line">
-        <i class="iconfont icon-search">&#xe632;</i>
-        <span>输入城市/景点/游玩主题</span>
-      </span>
-      </router-link>
-    </div>
-    <div class="header-right">
-        <router-link to='/city'>
-            <span class="nav-city">
-                <span class="span-city"><!--{{$store.state.city}}-->北京</span>
-                <span class="triangle"></span>
-                <i class="downarrow"></i>
+    <header class="header">
+        <a class="header-left iconfont">&#xe615;</a>
+        <div class="header-title">
+            <span class="single-line">
+                <i class="iconfont icon-search">&#xe632;</i>
+                <span class="tip">输入城市/景点/游玩主题</span>
             </span>
-        </router-link>
-    </div>
+        </div>
+        <div class="header-right">
+            <router-link to='/city'>
+                <span class="nav-city">{{$store.state.newCity}}
+                    <span class="triangle"></span>
+                    <i class="downarrow"></i>
+                </span>
+            </router-link>
+        </div>
     </header>
 </template>
 
@@ -26,14 +23,6 @@ export default {
     data () {
         return {}
     }
-//  methods: {
-//      changeCity: function() {
-//          this.$store.commit("changeCity", {city: "北京"});
-//  //      this.$store.dispatch("fiveSecondsChangeCity",{
-//  //          city:"云南"
-//  //      });
-//      }
-//  }
 }
 </script>
 
@@ -85,24 +74,30 @@ export default {
     text-align: center;
 }
 .triangle {
+    content: "";
     width: 0;
     height: 0;
-    border-width: 7px;
+    border-width: .14rem;
     border-style: solid dashed dashed dashed;
     border-color: #fff transparent transparent transparent;
     position: absolute;
     top: 19px;
+    right: .24rem;
 }
 .single-line {
     display: block;
 }
-.single-line span {
-    width: 3.72rem;
+.single-line .tip {
     height: .6rem;
     color: #e4e7ea;
 }
 .nav-city {
+    overflow: hidden;
+    display: inline-block;
     color: #fff;
+    max-width: .72rem;
     padding-right: .16rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 </style>

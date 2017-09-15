@@ -2,17 +2,22 @@
 	<div class="banner">
 		<swiper :options="swiperOption" >
 		    <swiper-slide v-for="item in imgsInfo" key="item.id">
-		    	<div class="img-container">
-		    		<img class="swiper-img" :src="item.imgUrl" />
-		    	</div>
+		    	<router-link to='/seckill' v-if="key=5">
+			    	<div class="img-container">
+			    		<img class="swiper-img" :src="item.imgUrl" />
+			    	</div>
+	    	</router-link>
 		    </swiper-slide>
-		    <div class="swiper-pagination"  slot="pagination"></div>
+		    <div class="swiper-pagination"  slot="pagination"></div>		
 		</swiper>
 	</div>
+	
 </template>
 
 <script>
+
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
 export default {
     props:["imgsInfo"],
     data () {
@@ -25,6 +30,7 @@ export default {
 		        observeParents: true
 	        }
 	    }
+
     },
     components: {
 	    "swiper": swiper,
@@ -35,8 +41,10 @@ export default {
 
 <style scoped>
 @import '~swiper/dist/css/swiper.css';
+
 .banner {
-	height: 2.34rem;
+	height: 0;
+	padding-bottom: 31.2%;
 }
 .img-container {
     background: #eee;
@@ -44,10 +52,9 @@ export default {
     width: 100%;
     padding-bottom: 31.25%;
     height: 0;
-    position: relative;
-  }
-  .swiper-img {
+}
+.swiper-img {
     width: 100%;
-  }
- 
+}
 </style>
+

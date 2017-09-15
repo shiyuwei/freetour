@@ -2,25 +2,25 @@
 	<div class="foot-container">
 		<ul class="select">
 			<li to="" class="select-item">
-				<span class="iconfont">&#xe60f;</span>
-				<b>机票</b>
+				<span class="iconfont icon">&#xe60f;</span>
+				<b class="select-item-kind">机票</b>
 			</li>
 			<li to="" class="select-item">
-				<span class="iconfont">&#xe611;</span>
-				<b>酒店</b>
+				<span class="iconfont icon">&#xe611;</span>
+				<b class="select-item-kind">酒店</b>
 			</li>
 			<li to="" class="select-item">
-				<span class="iconfont">&#xe83f;</span>
-				<b>公寓</b>
+				<span class="iconfont icon">&#xe83f;</span>
+				<b class="select-item-kind">公寓</b>
 			</li>
 			<span class="halving-line">|</span>
 			<li to="" class="select-item more">
-				<span class="iconfont">&#xe635;</span>
-				<b>更多</b>
+				<span class="iconfont icon">&#xe635;</span>
+				<b class="select-item-kind">更多</b>
 			</li>
 		</ul>
-		<p class="foot-login">
-			<span to="">登录</span><span to="">我的订单</span><span to="">最近浏览</span><span to="">关于我们</span>
+		<p class="foot-login border-bottom">
+			<span to="" class="foot-login-way">登录</span><span to="" class="foot-login-way">我的订单</span><span to="" class="foot-login-way">最近浏览</span><span to="" class="foot-login-way">关于我们</span>
 		</p>
 		<p class="version-select">
 			<span class="version-touch">触屏版</span>
@@ -34,6 +34,7 @@
 	export default {
 		data() {
 			return {
+
 			}
 		}
 	}
@@ -41,6 +42,7 @@
 
 <style scoped>
 	@import "../../assets/font/iconfont.css";
+	@import "../../assets/css/common/border.css";
 	.select {
 		padding: .2rem .75rem 0;
 		background: #f5f5f5;
@@ -54,10 +56,10 @@
 		text-align: center;
 		color: #acacac;			
 	}
-	.select-item b {
+	.select-item .select-item-kind {
 		text-decoration: underline;
 	}
-	.select-item span {
+	.select-item .icon {
 		font-size: .4rem;
 		vertical-align: top;
 	}
@@ -65,20 +67,22 @@
 		color: #acacac;
 		line-height: .5rem;
 	}
-	.more span {
+	.more .icon {
 		font-size: .28rem;
 	}
-	.more b {
+	.more .select-item-kind {
 		text-decoration: none;
 	}
 	.foot-login {
 		line-height: .8rem;
 		font-size: .28rem;
 		color: #25a4bb;
-		background: #f5f5f5;
-		border-bottom: .005rem solid #cacaca; 
+		background: #f5f5f5; 
 	}
-	.foot-login span {
+	.foot-login::after {
+		background-color: #cacaca;
+	}
+	.foot-login .foot-login-way {
 		margin-left: .4rem;
 	}
 	.version-select {

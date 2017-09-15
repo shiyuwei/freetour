@@ -1,8 +1,8 @@
 <template>
 	<div class="recommend-container">
 		<p class="recommend-title">热门推荐</p>
-		<ul class="recommend-list" v-for="item in recommendInfo" key="item.id">
-			<li class="recommend-item">
+		<ul class="recommend-list">
+			<li class="recommend-item border-bottom" v-for="item in recommendInfo" key="item.id">
 				<div class="item-img">
 					<img :src="item.imgUrl">
 				</div>
@@ -21,70 +21,52 @@
 
 <script>
 	export default {
+		props:["recommendInfo"],
 		data () {
 			return {
-				recommendInfo: [{
-					"id": "1",
-					"imgUrl": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg",
-					"itemTitle": "故宫",
-					"itemIntro": "东方宫殿建筑代表，世界宫殿建筑典范",
-					"itemPrice": "20"
-				},{
-					"id": "2",
-					"imgUrl": "http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_140x140_e20be8e0.jpg",
-					"itemTitle": "颐和园",
-					"itemIntro": "保存完整的一座皇家行宫御苑",
-					"itemPrice": "65"
-				},{
-					"id": "3",
-					"imgUrl": "http://img1.qunarzz.com/sight/p0/1604/1b/1b6778deafaf208f90.img.jpg_140x140_75f5d504.jpg",
-					"itemTitle": "八达岭长城",
-					"itemIntro": "不到长城非好汉",
-					"itemPrice": "39.9"
-				},{
-					"id": "4",
-					"imgUrl": "http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_140x140_b05eb1df.jpg",
-					"itemTitle": "北京欢乐谷",
-					"itemIntro": "七大主题园区带你畅享北京欢乐谷",
-					"itemPrice": "29.5"
-				},{
-					"id": "5",
-					"imgUrl": "http://img1.qunarzz.com/sight/p0/201306/13/bdf22f69fab0ee4ec8d65eac.jpg_140x140_355f4fb6.jpg",
-					"itemTitle": "八达岭长城缆车",
-					"itemIntro": "巍峨雄伟尽收眼底",
-					"itemPrice": "155"
-				}]
+				
 			}
 		}
 	}
 </script>
 
 <style scoped>
+	@import "../../assets/css/common/border.css";
 	.recommend-title {
+		overflow: hidden;
 		background: #f5f5f5;
 		height: .8rem;
 		font-size: .28rem;
 		line-height: .8rem;
 		padding-left: .26rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 	.recommend-item {
-		overflow: hidden;
+		position: relative;
+		height: 1.8rem;
+	}
+	.recommend-item::after {
+		background-color: #f5f5f5; 
 	}
 	.item-img {
-		float: left;
+		position: absolute;
+		left: .2rem;
+		top: .2rem;
 		width: 1.4rem;
 		height: 1.4rem;
-		padding: .2rem;
 	}
 	.item-img img {
 		width: 100%;
 		height: 100%;
 	}
-	.item-msg{
-		float: left;	
-		overflow: hidden;	
+	.item-msg{	
+		overflow: hidden;
+		margin-left: 1.8rem;	
 		padding-top: .2rem;		
 		line-height: .4rem;	
+		white-space: nowrap;
+	    text-overflow: ellipsis;
 	}
 	.item-msg-title {	
 		height: .4rem;				

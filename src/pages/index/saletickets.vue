@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="ticket-container">
+        <div class="ticket-container border-top">
             <div class="sale-location">
                 <span class="iconfont">&#xe605;</span>
                 定位失败
             </div>
-            <div class="sale-location nine-tickets">
+            <div class="sale-location nine-tickets border-left">
                 <span class="iconfont">&#xe60d;</span>
                 9元门票
             </div>
@@ -24,12 +24,16 @@
 
 <style scoped>
     @import "../../assets/font/iconfont.css";
+    @import "../../assets/css/common/border.css";
     .ticket-container {
         width: 100%;
         height: .98rem;
-        margin-top: .2rem;
+    }
+    .ticket-container::before {
+        background-color: #f5f5f5;
     }
     .sale-location {
+        overflow: hidden;
         width: 50%;
         height: 100%;
         text-align: center;
@@ -37,6 +41,11 @@
         float: left;
         color: #212121;
         font-size: .28rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .nine-tickets::before {
+        background-color: #f5f5f5;
     }
     .sale {
         width: 100%;
@@ -46,3 +55,4 @@
         border-top: .18rem solid #f5f5f5;        
     }
 </style>
+
